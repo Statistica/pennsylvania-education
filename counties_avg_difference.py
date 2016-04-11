@@ -21,5 +21,5 @@ f=open('counties_avg_sat_difference.csv', 'w') #save the counties to a .csv
 w=csv.writer(f)
 w.writerow(["county", "average sat score", "expected sat score", "difference from expected"])
 for c in sorted(counties, key=operator.itemgetter('difference'), reverse=True):
-	w.writerow([c['county'], c['avg_sat'], round(c['expected_sat'], 2), round(c['difference'], 2)])
+	w.writerow([c['county'], round(c['avg_sat'], 2), round(c['expected_sat'], 2), round(c['difference'], 2)])
 f.close()
