@@ -18,7 +18,7 @@ for county in counties:
 	del county['avg_sat'], county['per_capita_income'] #delete the avg_sat and per_capita_income from the
 													   #county, we don't need them anymore
 
-f=open('county_avg_sat_difference.csv', 'w') #save the counties to a .csv
+f=open('counties_avg_sat_difference.csv', 'w') #save the counties to a .csv
 w=csv.writer(f)
 w.writerow(["county", "expected sat score", "difference from expected"])
 for c in sorted(counties, key=operator.itemgetter('difference'), reverse=True):
