@@ -7,7 +7,7 @@ from plotly.graph_objs import Scatter, Layout
 
 
 schools=[]
-with open('schools.csv', 'r') as f: #add all of the schools to the 'schools' list
+with open('pa_schools.csv', 'r') as f: #add all of the schools to the 'schools' list
 	reader=csv.reader(f)
 	next(reader) #skip header row
 	for row in reader:
@@ -19,7 +19,7 @@ with open('schools.csv', 'r') as f: #add all of the schools to the 'schools' lis
 
 schools_sats=[]
 
-with open('sat.csv', 'r') as f: #add each high school's sat score
+with open('pa_avg_sat.csv', 'r') as f: #add each high school's sat score
 	reader=csv.reader(f)
 	for i in range(8): #skip header rows
 		next(reader)
@@ -45,7 +45,7 @@ for county, scores in grouped.iteritems(): #get the average scores for each coun
 
 #get each county's per capita income
 for district_avg_score in district_avg_scores: #loop through every county's average sat scores
-	with open('avg_income_pa.csv', 'r') as f:
+	with open('pa_avg_income.csv', 'r') as f:
 		reader=csv.reader(f)
 		for row in reader: #loop through every county average income
 			if district_avg_score['county']==row[1]: #row[1] is the county name
