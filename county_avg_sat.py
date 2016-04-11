@@ -77,4 +77,4 @@ trace=go.Scatter(
 )
 data=[trace]
 fig=go.Figure(data=data)
-# plotly.plot(fig) #plot the scatter plot!
+plotly.plot(fig) #plot the scatter plot!
