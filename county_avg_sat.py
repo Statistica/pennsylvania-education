@@ -43,7 +43,7 @@ for county in schools_sats:
 
 county_avg_scores=[]
 for county, scores in grouped.iteritems(): #get the average scores for each county
-	county_avg_scores.append({'county': county, 'avg': sum(scores)/len(scores)})
+	county_avg_scores.append({'county': county, 'avg_sat': sum(scores)/len(scores)})
 
 #get each county's per capita income
 for county_avg_score in county_avg_scores: #loop through every county's average sat scores
@@ -63,10 +63,10 @@ f=open('counties_avg_sat.csv', 'w')
 w=csv.writer(f)
 w.writerow(["county", "average sat score", "per capita income"])
 for c in county_avg_scores:
-	sats.append(c['avg'])
+	sats.append(c['avg_sat'])
 	incomes.append(c['per_capita_income'])
 	names.append(c['county'])
-	w.writerow([c['county'], c['avg'], c['per_capita_income']])
+	w.writerow([c['county'], c['avg_sat'], c['per_capita_income']])
 f.close()
 
 trace=go.Scatter(
