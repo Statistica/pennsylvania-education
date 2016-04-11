@@ -8,6 +8,7 @@ from plotly.graph_objs import Scatter, Layout
 
 schools=[]
 with open('pa_schools.csv', 'r') as f: #add all of the schools to the 'schools' list
+				       #pa_schools.csv from: http://www.edna.ed.state.pa.us/Screens/Extracts/wfExtractPublicSchools.aspx
 	reader=csv.reader(f)
 	next(reader) #skip header row
 	for row in reader:
@@ -20,6 +21,7 @@ with open('pa_schools.csv', 'r') as f: #add all of the schools to the 'schools' 
 schools_sats=[]
 
 with open('pa_avg_sat.csv', 'r') as f: #add each high school's sat score
+				       #pa_avg_sat.csv from: http://www.education.pa.gov/K-12/Assessment%20and%20Accountability/Pages/SAT-and-ACT.aspx (Public School SAT Scores 2015)
 	reader=csv.reader(f)
 	for i in range(8): #skip header rows
 		next(reader)
@@ -45,7 +47,7 @@ for county, scores in grouped.iteritems(): #get the average scores for each coun
 
 #get each county's per capita income
 for district_avg_score in district_avg_scores: #loop through every county's average sat scores
-	with open('pa_avg_income.csv', 'r') as f:
+	with open('pa_avg_income.csv', 'r') as f: #pa_avg_income.csv from: https://en.wikipedia.org/wiki/List_of_Pennsylvania_counties_by_per_capita_income#Pennsylvania_counties_ranked_by_per_capita_income (from US Census Bureau)
 		reader=csv.reader(f)
 		for row in reader: #loop through every county average income
 			if district_avg_score['county']==row[1]: #row[1] is the county name
